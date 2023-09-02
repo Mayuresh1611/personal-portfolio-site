@@ -11,7 +11,8 @@ html {
 body{
     margin: none;
     padding: none;
-    height: 100vh;
+    overflow: hidden;
+    
 }
 
 *{
