@@ -11,6 +11,7 @@ html {
 body{
     margin: none;
     padding: none;
+    overflow: hidden;
     
 }
 
