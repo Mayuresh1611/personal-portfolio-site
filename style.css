@@ -184,6 +184,14 @@ svg{
         overflow: hidden;
     }
 
+    *{
+        overflow: hidden ;
+    }
+
+    body{
+        overflow: hidden ;
+    }
+
     #moon{
         position: static;
         height: 30vh;
@@ -218,16 +226,18 @@ svg{
     }
 
     .intro-box{
-        left: 22vw;
+
+        position: relative;
         flex-direction: column;
         background-color: rgba(17, 87, 218, 0.295);
-        height: 34vh;
+        height: 35vh;
         width: 40vh;
         border-radius: 5vw;
         border-top-left-radius: 13vw;
         border-top-right-radius: 13vw;
         margin-left: auto;
         margin-right: auto;
+
     }
 
     .profile-pic{
@@ -237,6 +247,7 @@ svg{
     }
 
     .name p{
+        font-size: 9vw;
         margin-left: 0.3rem;
         text-align: center;
         color: rgb(255, 255, 255);
@@ -257,4 +268,5 @@ svg{
         letter-spacing: 0.25rem;
         
     }
+    
 }
