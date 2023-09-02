@@ -181,11 +181,12 @@ svg{
 
 @media  screen and (max-width:768px) {
     html{
+        overflow: hidden;
     }
 
     #moon{
         position: static;
-        height: 50vh;
+        height: 30vh;
     }
 
     .moonbox{
@@ -217,13 +218,16 @@ svg{
     }
 
     .intro-box{
+        left: 22vw;
         flex-direction: column;
         background-color: rgba(17, 87, 218, 0.295);
-        height: 18.3rem;
-        width: 16.4rem;
-        border-radius: 1.2rem;
-        border-top-left-radius: 5rem;
-        border-top-right-radius: 5rem;
+        height: 34vh;
+        width: 40vh;
+        border-radius: 5vw;
+        border-top-left-radius: 13vw;
+        border-top-right-radius: 13vw;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .profile-pic{
@@ -239,11 +243,18 @@ svg{
     }
 
     .short-about-me{
+        
         clear: none;
-        width: 16.4rem;
+        width: 56vw;
         margin-left: auto;
         margin-right: auto;
+        justify-self: end;
     }
 
-    
+    .short-about-me p{
+        font-size: 3vw;
+        text-align: center;
+        letter-spacing: 0.25rem;
+        
+    }
 }
