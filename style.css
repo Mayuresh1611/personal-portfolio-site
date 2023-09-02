@@ -1,0 +1,165 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Kanit:wght@300&family=Rubik+Iso&display=swap');
+
+
+html {
+    background-color: rgba(8, 8, 102, 1);
+    overflow: hidden;
+    padding: none;
+}
+
+body{
+    margin: none;
+    padding: none;
+    height: 100vh;
+}
+
+*{
+    margin: 0px;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+svg{
+    display: block;
+}
+
+#contact-me-svg{
+    
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 20;
+    width: 83.75vw;
+    height: 11.17vw;
+    animation: waveAnimationLeft 5s linear infinite 1s;
+}
+
+#experience-unselected{
+    position: absolute;
+    bottom: -0.5vw;
+    z-index: 19;
+    width: 100vw;
+    height:17.13vw ;
+    animation: waveAnimationRight 8s linear infinite;
+}
+
+#tech-stack-unselected{
+
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 18;
+    width: 75.44vw;
+    height: 23.67vw;
+    animation: waveAnimationRight 4s linear infinite 3s;
+}
+
+#about-me-unselected{
+
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    right: -1px;
+    height: 41.84vw;
+    z-index: 17;
+    animation: waveAnimationDown 8s linear infinite ;
+
+}
+
+#side-hustle-unselected{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 16;
+    width: 100vw;
+    height: 28.82vw;
+    animation: waveAnimationUp 8s linear infinite 5s;
+}
+
+#moon{
+    position: absolute;
+    right: 11vw;
+    top: -3vh;
+    height: 67vh;
+    z-index: 15;
+}
+
+.moonbox{
+    position: absolute;
+    
+    height: 67vh;
+    width: 100vw;
+    filter: blur(0x);
+}
+
+/*  */
+
+@keyframes waveAnimationLeft {
+    50% {
+        transform: translateX(7.35vw);
+    }
+}
+
+@keyframes waveAnimationRight {
+    50% {      
+        transform: translate(2vw , 1vw);
+    }  
+}
+
+@keyframes waveAnimationDown {
+
+    50% {      
+        transform: translate(0vw , 2vw);
+    }  
+}
+
+@keyframes waveAnimationUp {
+
+    50% {      
+        transform: translate(0vw , 3vw);
+    }  
+}
+
+
+@media  screen and (max-width:768px) {
+    html{
+    }
+
+    #moon{
+        position: static;
+        height: 50vh;
+    }
+
+    .moonbox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: blur(5px);
+    }
+
+    #contact-me-svg{
+        height: 18vw;
+    }
+
+    #experience-unselected{
+        height: 29vw;
+    
+    }
+
+    #tech-stack-unselected{
+        height: 35vw;    
+    }
+
+    #about-me-unselected{
+        height: 60vw;
+    }
+
+    #side-hustle-unselected{
+        height: 40vw;
+    }
+}
