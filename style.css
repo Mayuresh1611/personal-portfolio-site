@@ -26,61 +26,86 @@ body{
     text-transform: uppercase;
 }
 
-svg{
-    display: block;
-}
+
 
 #contact-me-svg{
     
     position: absolute;
     left: 0px;
     bottom: 0px;
-    z-index: 20;
+    z-index: 24;
     width: 83.75vw;
     height: 11.17vw;
     animation: waveAnimationLeft 5s linear infinite 1s;
 }
 
 #experience-unselected{
-    position: absolute;
-    bottom: -0.5vw;
-    z-index: 19;
     width: 100vw;
     height:17.13vw ;
     animation: waveAnimationRight 8s linear infinite;
 }
 
-#tech-stack-unselected{
+.experience-container{
+    position: absolute;
+    bottom: -0.5vw;
+    z-index: 22;
+    width: 100vw;
+    height:17.13vw ;
+    
+}
 
+#tech-stack-unselected{
     position: absolute;
     bottom: 0px;
     right: 0px;
-    z-index: 18;
     width: 75.44vw;
     height: 23.67vw;
     animation: waveAnimationRight 4s linear infinite 3s;
 }
 
-#about-me-unselected{
+.tech-stack-container{
 
     position: absolute;
     bottom: 0px;
-    width: 100vw;
-    right: -1px;
-    height: 41.84vw;
-    z-index: 17;
-    animation: waveAnimationDown 8s linear infinite ;
+    right: 0px;
+    z-index: 20;
+    width: 100%;
+    height: 23.67vw;
+    
+}
 
+div[class*="container"]{
+    overflow: hidden;
+}
+
+#about-me-unselected{
+    width: 100vw;
+    height: 41.84vw;
+    animation: waveAnimationDown 8s linear infinite ;
+}
+
+.about-me-container{
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 41.84vw;
+    z-index: 18;
 }
 
 #side-hustle-unselected{
+    width: 100vw;
+    height: 28.82vw;
+    animation: waveAnimationUp 8s linear infinite 5s;
+}
+
+.side-hustle-container{
     position: absolute;
     left: 0px;
     bottom: 0px;
     z-index: 16;
     width: 100vw;
     height: 28.82vw;
-    animation: waveAnimationUp 8s linear infinite 5s;
 }
 
 #moon{
@@ -177,21 +202,46 @@ svg{
     margin-left: 8rem;
 }
 
-/* -----------------------------for mobile screens -----------------------------------------*/
+h6{
+    color: white;
+}
 
-@media  screen and (max-width:768px) {
-    html{
-        overflow: hidden;
-    }
+#contact-me-heading{
+    position: absolute;
+    z-index: 28;
+    bottom: 7vw;
+    left:32vw ;
+}
 
-    *{
-        overflow: hidden ;
-    }
+#experience-heading{
+    position: absolute;
+    z-index: 28;
+    bottom: 8vw;
+    right: 3.5vw ;
+}
 
-    body{
-        overflow: hidden ;
-    }
+#tech-stack-heading{
+    position: absolute;
+    z-index: 28;
+    bottom: 13vw;
+    right: 21vw;
+}
 
+#about-me-heading{
+    position: absolute;
+    z-index: 28;
+    bottom: 30vw;
+    right: 4vw;
+}
+
+#side-hustle-heading{
+    position: absolute;
+    z-index: 28;
+    bottom: 19vw;
+    left: 4vw;
+}
+
+@media screen and (max-width: 768px) {
     #moon{
         position: static;
         height: 30vh;
@@ -204,40 +254,19 @@ svg{
         filter: blur(5px);
     }
 
-    #contact-me-svg{
-        height: 18vw;
-    }
-
-    #experience-unselected{
-        height: 29vw;
-    
-    }
-
-    #tech-stack-unselected{
-        height: 35vw;    
-    }
-
-    #about-me-unselected{
-        height: 60vw;
-    }
-
-    #side-hustle-unselected{
-        height: 40vw;
-    }
-
     .intro-box{
 
         position: relative;
         flex-direction: column;
         background-color: rgba(17, 87, 218, 0.295);
-        height: 35vh;
-        width: 40vh;
+        height: fit-content;
+        width: 90vw;
         border-radius: 5vw;
         border-top-left-radius: 13vw;
         border-top-right-radius: 13vw;
         margin-left: auto;
         margin-right: auto;
-
+        padding-bottom: 5vw;
     }
 
     .profile-pic{
@@ -266,7 +295,9 @@ svg{
         font-size: 3vw;
         text-align: center;
         letter-spacing: 0.25rem;
-        
     }
-    
-}
+
+    h6{
+        display: none;
+    }
+  }
