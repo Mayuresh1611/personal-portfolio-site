@@ -36,13 +36,13 @@ body{
     z-index: 24;
     width: 83.75vw;
     height: 11.17vw;
-    animation: waveAnimationLeft 5s linear infinite 1s;
+    animation: waveAnimationLeft 8s ease-in-out infinite 1s;
 }
 
 #experience-unselected{
     width: 100vw;
     height:17.13vw ;
-    animation: waveAnimationRight 8s linear infinite;
+    animation: waveAnimationRight 5s ease-in-out infinite;
 }
 
 .experience-container{
@@ -57,10 +57,10 @@ body{
 #tech-stack-unselected{
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: -1.1vw;
     width: 75.44vw;
     height: 23.67vw;
-    animation: waveAnimationRight 4s linear infinite 3s;
+    animation: waveAnimationRight 8s ease-in-out infinite ;
 }
 
 .tech-stack-container{
@@ -81,7 +81,7 @@ div[class*="container"]{
 #about-me-unselected{
     width: 100vw;
     height: 41.84vw;
-    animation: waveAnimationDown 8s linear infinite ;
+    animation: waveAnimationDown 12s ease-in-out infinite ;
 }
 
 .about-me-container{
@@ -96,7 +96,7 @@ div[class*="container"]{
 #side-hustle-unselected{
     width: 100vw;
     height: 28.82vw;
-    animation: waveAnimationUp 8s linear infinite 5s;
+    animation: waveAnimationUp 10s ease-in-out infinite ;
 }
 
 .side-hustle-container{
@@ -241,6 +241,8 @@ h6{
     left: 4vw;
 }
 
+
+/* responsive design for mobile devices */
 @media screen and (max-width: 768px) {
     #moon{
         position: static;
@@ -300,4 +302,6 @@ h6{
     h6{
         display: none;
     }
+
+    
   }
