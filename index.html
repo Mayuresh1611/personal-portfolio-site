@@ -7,42 +7,93 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- Vectore/svg for the waves -->
+    <h6 id="contact-me-heading">CONNECT WITH ME</h6>
     <div class="contact-me-container">
-        <h6 id="contact-me-heading">CONNECT WITH ME</h6>
     <img id="contact-me-svg" src="waves svg/waves unselected/contact_me.svg" >  
     </div>
+
+    <h6 id="experience-heading">EXPERIENCE</h6>
     <div class="experience-container">
-        <h6 id="experience-heading">EXPERIENCE</h6>
-    <img id="experience-unselected" src="waves svg/waves unselected/experience_unselected.svg"> 
+        <svg id="experience-unselected" width="1364" height="233" viewBox="0 0 1364 233" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a id="experience-clickable"><path d="M440.706 23.7598C251.484 39.3778 24.1981 182.089 -20.5 249V466.5H1364V2.73552C1260.17 -6.27487 1272.74 2.73553 1105.59 95.3424C938.437 187.949 677.233 4.23725 440.706 23.7598Z" fill="#262CB4"/>
+        </a></svg>
+            
     </div>  
+
+    <h6 id="tech-stack-heading">TECH STACK</h6>
     <div class="tech-stack-container">
-        <h6 id="tech-stack-heading">TECH STACK</h6>
-    <img id="tech-stack-unselected" src="waves svg/waves unselected/tech_stack_unslelected.svg"> 
-    </div>
-    <div class="about-me-container">
-        <h6 id="about-me-heading">ABOUT ME</h6>
-    <img  id="about-me-unselected" src="waves svg/waves unselected/about_me_unselected.svg">  
-    </div>
-    <div class="side-hustle-container">
-        <h6 id="side-hustle-heading">SIDE HUSTLES</h6>
-    <img id="side-hustle-unselected" src="waves svg/waves unselected/side_hustle_unselected.svg">
+        <svg  id="tech-stack-unselected" width="1026" height="332" viewBox="0 0 1026 332" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a id="tech-stack-clickable"><path d="M726.337 57.7107C567.178 56.5268 470.829 135.48 442.549 175.105C388.967 221.142 225.442 570.373 0 583H1026V0C992.428 19.7301 885.496 58.8945 726.337 57.7107Z" fill="#0F50CE"/>
+        </a></svg>
     </div>
 
+    <h6 id="about-me-heading">ABOUT ME</h6>
+    <div class="about-me-container">
+        <svg id="about-me-unselected"  width="1362" height="569" viewBox="0 0 1362 569" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a id="about-me-clickable"><path d="M942.489 278.3C751 398.787 588.99 251.581 408.166 290.306C363.377 298.298 253.878 308.786 58.7907 482.095C5.74171 529.222 -10.1041 552.961 -16 569H659.545H1361.03V265.905V0.499966C1303.64 8.01023 1218.81 31.228 1176.72 65.8846C1103.44 126.219 989.244 248.881 942.489 278.3Z" fill="#2A8DE9"/></a>        
+        </svg>
+    </div>
+    <h6 id="side-hustle-heading">SIDE HUSTLES</h6>
+    <div class="side-hustle-container">
+        <svg id="side-hustle-unselected" width="1366" height="392" viewBox="0 0 1366 392" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a id="side-hustle-clickable"><path d="M743 4.49995C892.2 18.4999 931.5 61.5 965 79.5L1373.5 392H-10V4.49995C146 47.5 183.929 59.7251 227.5 64.5C264 68.4999 347.5 54.4999 387.5 43.4999C422.138 33.9746 556.5 -13.0001 743 4.49995Z" fill="#3064EA"/>
+        </a></svg>
+    </div>
+
+
+    <!--  moon svg -->
     <div class="moonbox">    
         <img  id="moon" src="waves svg/waves unselected/moon.svg">
-        
     </div>
     
-
+    <!-- introduction -->
     <div class="intro-box">
         <div class="profile-pic"></div>
         <div class="name"><p>MAYURESH <br>SATAM</p></div>
         <div class="short-about-me"><p>A passionate being with keen to solve any problem be it related to life,work or just a fun pursuit</p></div>
     </div>
             
+    <!-- about me (selected) -->
+    <div class="about-me-selected-container">
+        <img id="about-me-selected" src="waves svg/waves selected/about-me-selected.svg" >
+        <img src="waves svg/waves selected/india.svg" id="india">
+
+        <div id="about-me-from-section">
+            <p>I AM FROM MAHARASHTRA,<br>INDIA<br><span>(A COUNTRY OF DIVERSE AND RICH CULTURE, GREAT HISTORY AND A LAND OF GODS)</span></p>
+        </div>
+        <div id="about-me-education-section">
+            <p>I AM PURSUING BTECH IN COMPUTER SCIENCE (3RD YEAR).<br><br>I CAME INTO TECH JUST BECAUSE OF MY DESIRE TO CREATE SOMETHING<br><br>(THEY CALL IT DEVELOPER)</p>
+        </div>
+        <div id="about-me-extra-section">
+            <p>JUST NOT ONLY IN TECH, MY AMBITIONS LIE FAR BEYOND THIS.<br><br>OUTSIDE THE TECH<br><br></p>
+        </div>
+    </div>
+
+    <!-- Tech stack ( selected ) -->
+    <div class="tech-stack-selected-container">
+        <img src="waves svg/waves selected/tech-stack-selected.svg" alt="" id="tech-stack-selected">
+        <h6 id="languages-heading">LANGUAGES</h6>
+        <div class="languages-section">
+            <img src="waves svg/waves selected/tech-stack-logos/python.svg" alt="" id="python">
+            <img src="waves svg/waves selected/tech-stack-logos/c++.svg" alt="" id="cpp">
+            <img src="waves svg/waves selected/tech-stack-logos/html.svg" alt="" id="html">
+            <img src="waves svg/waves selected/tech-stack-logos/javascript.svg" alt="" id="javascript">
+            <img src="waves svg/waves selected/tech-stack-logos/css.svg" alt="" id="css">
+        </div>
+
+        <h6 id="tools-heading">TOOLS</h6>
+        <div class="tools-section">
             
-            
-    <script href="script.js"></script>
+            <img src="waves svg/waves selected/tech-stack-logos/github.svg" alt="" id="github">
+            <img src="waves svg/waves selected/tech-stack-logos/git.svg" alt="" id="git">
+            <img src="waves svg/waves selected/tech-stack-logos/figma.svg" alt="" id="figma">
+            <img src="waves svg/waves selected/tech-stack-logos/photoshop.svg" alt="" id="photoshop">
+        </div>
+    </div>        
+
+
+    <script src="script.js"></script>
 </body>
 </html>

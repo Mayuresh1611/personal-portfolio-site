@@ -20,7 +20,6 @@ body{
     padding: 0; 
     box-sizing: border-box;
     font-family: 'Inconsolata', monospace;
-    letter-spacing: 5px;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -30,14 +29,21 @@ body{
 
 #contact-me-svg{
     
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    z-index: 24;
     width: 83.75vw;
     height: 11.17vw;
     animation: waveAnimationLeft 8s ease-in-out infinite 1s;
 }
+
+.contact-me-container{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 24;
+    width: 100vw;
+    height: 11.17vw;
+    clip-path: polygon(10vw 5vw , 28vw 0vw , 56vw 0vw , 100vw 11.17vw , 0vw 11.17vw) ;
+}
+
 
 #experience-unselected{
     width: 100vw;
@@ -47,14 +53,16 @@ body{
 
 .experience-container{
     position: absolute;
-    bottom: -0.5vw;
+    bottom: -0.2vw;
     z-index: 22;
     width: 100vw;
     height:17.13vw ;
+    clip-path: polygon(0 0,0.0vw 14.71vw , 14.71vw 5.88vw , 29.41vw 0.74vw , 36.76vw 0.74vw , 73.53vw 8.82vw , 80.88vw 5.88vw , 89.71vw 0.0vw , 100vw 0vw , 100vw  17.13vw , 0vw 17.13vw);
     
 }
 
 #tech-stack-unselected{
+
     position: absolute;
     bottom: 0px;
     right: -1.1vw;
@@ -69,8 +77,10 @@ body{
     bottom: 0px;
     right: 0px;
     z-index: 20;
-    width: 100%;
+    width: 78.44vw;
     height: 23.67vw;
+    clip-path: polygon(30.0vw 24.34vw , 35.35vw 11.03vw , 44.85vw 4.3vw , 60.76vw 2.94vw ,  100vw -3vw ,  100vw 23.56vw , 24vw 23.56vw );
+    
     
 }
 
@@ -85,12 +95,12 @@ div[class*="container"]{
 }
 
 .about-me-container{
-
     position: absolute;
     bottom: 0px;
     width: 100%;
     height: 41.84vw;
     z-index: 18;
+    clip-path: polygon(0vw 48.1vw , 0.0vw 38.24vw , 11.03vw 27.94vw , 25.74vw 20.59vw , 36.76vw 19.12vw , 51.47vw 21.32vw , 66.18vw 20.59vw , 88.24vw 1.47vw , 100vw 0vw , 100vw 48.1vw);
 }
 
 #side-hustle-unselected{
@@ -124,7 +134,218 @@ div[class*="container"]{
     filter: blur(0x);
 }
 
-/*  */
+a[id*="clickable"]{
+    cursor: pointer;
+}
+
+/* ------------------------------------------              about me selected          -------------------------------------------------------------*/
+#about-me-selected{
+    position: absolute;
+    left: 100vw;
+    bottom: -48.4vw;
+    height: 48.31vw;
+    width: 100vw;
+    transition: 2s;
+    
+}
+
+
+
+.about-me-selected-container{
+    position: absolute;
+    height:48.31vw;
+    width: 100vw;
+    bottom: -48vw;
+    z-index: 19;    
+}
+
+
+#india {
+    width: auto; 
+    height: 100%; 
+    position: absolute; 
+    left: 15vw;
+    z-index: 1;
+    transition: 2s ;
+    bottom: -48.1vw;
+}
+
+#india:hover{
+    left: 0vw;
+}
+
+.about-me-selected-container div[id*="section"]{
+    width: 19rem;
+    height: auto;
+    padding: 0.5vw;
+    background-color: rgba(23, 66, 224, 0.44);
+    border-radius: 2rem;
+    border: 0.05rem solid rgba(255, 255, 255, 0.52);
+    letter-spacing: 2px;
+    text-align: center;
+    color:aliceblue;
+    font-weight: 400;
+}
+
+
+#about-me-from-section{
+    position: absolute;
+    bottom: -17vw;
+    left: 30%;
+    z-index: 2;
+    transition: 1s;
+    
+}
+
+#about-me-from-section p span{
+    color: rgba(2, 255, 43, 1);
+}
+
+#about-me-education-section{
+    position: absolute;
+    bottom: -21vw;
+    left: 55%;
+    z-index: 2;
+    transition: 1s;
+}
+
+#about-me-extra-section{
+    position: absolute;
+    width: 14rem;
+    bottom: -28vw;
+    left: 80%;
+    z-index: 2;
+    transition: 1s;
+}
+
+
+
+/* about me animation */
+@keyframes about-me-transition {
+
+    from{
+        transform: translate( 50vw , 48.31vw);
+    }
+    to{
+        
+    }
+}
+
+@keyframes rise-up {
+    from{
+        transform: translateY(50vw);
+    }
+}
+
+
+/* ------------------------------------------  tech stack selected  -------------------------------------------------------------------- */
+
+
+
+.tech-stack-selected-container{
+    position: absolute;
+    width: 78.44vw;
+    height: 30.67vw;
+    z-index: 21;
+    bottom: -40vw;
+    right: 0;
+    clip-path: polygon(11vw 30.67vw , 28vw 11.03vw , 38vw 5.15vw , 50.24vw 3vw , 78.41vw 0vw , 78.41vw 30.67vw , 0vw 30.67vw) ;
+    
+}
+
+#tech-stack-selected{
+    position: absolute;
+    width: 100vw;
+    height: 40.67vw;
+    bottom: -50vw;
+    right: -5vw;
+    z-index: 1;
+    transition: 2s;
+}
+
+.languages-section{
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5 , 3vw);
+    grid-template-rows: repeat(3 , 3vw);
+    gap: 0.4vw;
+    justify-items: center;
+    align-items: center;
+    right: 22vw;
+    bottom: -9.5vw;
+    z-index: 2;
+    width: auto;
+    transition: 2s;
+}
+
+.languages-section img{
+    width: 3vw;
+    grid-column: 3;
+    grid-row: 2;
+    transition: 2s;
+    animation: wobble 4s ease-in-out infinite;
+}
+
+
+#languages-heading{
+    position: absolute;
+    right: 26vw;
+    bottom: -20vw;
+    z-index: 3;
+    transition: 2s ;
+}
+
+.tools-section{
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5 , 3vw);
+    grid-template-rows: repeat(3 , 3vw);
+    gap: 0.4vw;
+    column-gap: 1vw;
+    justify-items: center;
+    align-items: center;
+    right: 5vw;
+    bottom: -11vw;
+    z-index: 2;
+    width: auto;
+    transition: 2s;
+    
+}
+
+.tools-section img{
+    width: 3vw;
+    grid-column: 3;
+    grid-row: 2;
+    transition: 2s;
+    animation: wobble 4s ease-in-out infinite;
+
+}
+
+#tools-heading{
+    position: absolute;
+    right: 11.5vw;
+    bottom: -22vw;
+    z-index: 3;
+    transition: 2s;
+}
+
+@keyframes wobble {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform:rotate(10deg)
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+/*------------------------------------------     animation     -  ---------------------------------------------------------------------------- */
 
 @keyframes waveAnimationLeft {
     50% {
@@ -151,6 +372,8 @@ div[class*="container"]{
         transform: translate(0vw , 3vw);
     }  
 }
+
+
 
 
 
@@ -204,6 +427,7 @@ div[class*="container"]{
 
 h6{
     color: white;
+    letter-spacing: 5px;
 }
 
 #contact-me-heading{
@@ -225,6 +449,7 @@ h6{
     z-index: 28;
     bottom: 13vw;
     right: 21vw;
+    transition: 1s;
 }
 
 #about-me-heading{
@@ -232,6 +457,7 @@ h6{
     z-index: 28;
     bottom: 30vw;
     right: 4vw;
+    transition: 1s;
 }
 
 #side-hustle-heading{
