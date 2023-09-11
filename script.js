@@ -12,6 +12,7 @@ console.log(aboutMeSelected.children.length);
 
 
 aboutMeUnselectedSvg.addEventListener("click" , () => {
+    experienceUnselect()
     techStackUnSelect()
     aboutMeSelected.style.bottom = "0vw";
     aboutMeSelected.children[0].style.bottom = aboutMeSelectedPosition[0];
@@ -51,7 +52,6 @@ function aboutMeUnselect() {
 }
 
 setTimeout(() => {
-    techStackUnSelect()
 }, 10000);
 
 /* --------------------------------------------tech stack  ------------------------------------------------------- */
@@ -63,18 +63,22 @@ let techStackUnSelectedSvg = document.querySelector("#tech-stack-unselected")
 let techStackSelected = document.querySelector(".tech-stack-selected-container")
 
 techStackUnSelectedSvg.addEventListener("click" , function() {  
+    experienceUnselect()
     aboutMeUnselect()
     techStackSelected.style.bottom = "0vw"
     techStackSelected.children[0].style.bottom = "-5vw"
-    techStackHeading.style.bottom = "25vw"
+    
     setTimeout( function() {
         techStackSelected.children[1].style.bottom = "20vw"
         techStackSelected.children[3].style.bottom = "22vw"
+        techStackHeading.style.bottom = "25vw"
+        
     } , 500)
 
     setTimeout( function() {
         techStackSelected.children[2].style.bottom = "9.5vw"
         techStackSelected.children[4].style.bottom = "11vw"
+        
     } , 2000)
     positionLogos()
 })
@@ -121,4 +125,147 @@ function techStackUnSelect() {
         techStackSelected.style.bottom = "-50vw"
     }, 3000);
 
+}
+
+/* -------------------------------------------------- Experience selected   -----------------------------------------------------------------------------*/
+
+let projectsSection = document.querySelector(".projects-section")
+
+/* generates customized random  radius for div box to generate random shapes */
+function getRandomInt(max , min){
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+function changeShape() {
+    const topLeft = getRandomInt(40, 80); 
+    const topRight = getRandomInt(40, 80);
+    const bottomRight = getRandomInt(40, 80);
+    const bottomLeft = getRandomInt(40, 80);
+    return `${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%`
+}
+
+
+/* droplets */
+
+let dropletsHolder = document.querySelector(".droplets")
+let drops = [] 
+
+// creates the required droplets
+for(let j = 0; j < 40; j++) {
+    drop = document.createElement("div")
+    let size = getRandomInt(2 , 5) + "vw";
+    drop.style.height = size;
+    drop.style.width = size;
+    drop.style.bottom = "50%";
+    drop.style.left = "50%";
+    drops.push(drop)
+    dropletsHolder.appendChild(drop)
+}      
+
+
+function dropsSplash( l , b) {
+
+    dropletsHolder.style.bottom = b + "vw"
+    dropletsHolder.style.left = l + "vw"
+
+    for (let j = 0 ; j < drops.length ; j++) {
+        drops[j].style.bottom = getRandomInt(5 , 30) + "vw"; 
+        drops[j].style.left = getRandomInt(-30 , 40) + "vw";
+    }
+}
+
+function dropsCollect( ){
+
+    for (let j = 0 ; j < drops.length ; j++) {
+        drops[j].style.bottom = "50%"; 
+        drops[j].style.left = "50%";
+    }
+
+}
+
+/* experience select */
+
+let experienceUnselected = document.querySelector("#experience-unselected")
+let experienceSelectedContainer = document.querySelector(".experience-selected-container")
+let experienceSelected = document.querySelector("#experience-selected")
+
+experienceUnselected.addEventListener("click" , function() {
+    aboutMeUnselect();
+    techStackUnSelect()
+
+    experienceSelectedContainer.style.bottom = "0vw"
+    experienceSelected.style.bottom = "0vw"
+    
+    projectsSection.style.bottom = "12vw"
+
+})
+
+let projectsSectionActive = 0;
+
+function activateProject() {
+
+    /* sets up the different projects div into their respective positions */
+    let vals = [[-10 , 20] , [0 , 10 ] , [10 , 20]] 
+
+    for (let i = 1 ; i < projectsSection.children.length ; i++) {
+        pos = vals[i-1]
+        
+        projectsSection.children[i].style.height = "8vw"
+        projectsSection.children[i].style.width = "8vw"
+        projectsSection.children[i].style.left = pos[0] + "vw"
+        projectsSection.children[i].style.bottom = pos[1] + "vw"
+        
+        projectsSection.children[i].style.borderRadius = changeShape() ;  
+    }
+    // changes shape every 2 seconds
+    shapeChangeInterval = setInterval(() => {
+        for (let i = 1 ; i < projectsSection.children.length ; i++) {
+    
+            projectsSection.children[i].style.borderRadius = changeShape();
+            pos = pos + 11
+        }
+    }, 2000);
+
+
+    /* droplets */
+    dropsSplash(37 , 14);
+}
+
+function deactivateProject() {
+    for (let i = 1 ; i < projectsSection.children.length ; i++) {
+        
+        projectsSection.children[i].style.height = "0vw"
+        projectsSection.children[i].style.width = "0vw"
+        projectsSection.children[i].style.left = "50%"
+        projectsSection.children[i].style.bottom = "50%"
+    }
+
+    clearInterval(shapeChangeInterval)
+    dropsCollect()
+}
+
+/* changes the shape of the box every 2 seconds  */
+
+
+projectsSection.addEventListener("click" , function() {
+    if (projectsSectionActive) {
+        /* deactivate */
+        deactivateProject()
+        projectsSectionActive = 0; 
+    }
+    else{
+        /* activate */
+        activateProject()
+        projectsSectionActive = 1;
+    }
+})
+
+function experienceUnselect() {
+    deactivateProject()
+    experienceSelected.style.bottom = "-30vw"
+    projectsSection.style.bottom = "-12vw"
+    dropletsHolder.style.bottom = "-10vw" 
+
+    setTimeout(() => {
+        experienceSelectedContainer.style.bottom = "-30vw"
+    }, 3000);
 }
