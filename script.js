@@ -29,6 +29,7 @@ aboutMeUnselectedSvg.addEventListener("click" , () => {
     }
     
 }) 
+/*  */
 
 function aboutMeUnselect() {
     
