@@ -138,6 +138,35 @@ a[id*="clickable"]{
     cursor: pointer;
 }
 
+/*------------------------------------------     animation     ----------------------------------------------------------------------------- */
+
+@keyframes waveAnimationLeft {
+    50% {
+        transform: translateX(7.35vw);
+    }
+}
+
+@keyframes waveAnimationRight {
+    50% {      
+        transform: translate(2vw , 1vw);
+    }  
+}
+
+@keyframes waveAnimationDown {
+
+    50% {      
+        transform: translate(0vw , 2vw);
+    }  
+}
+
+@keyframes waveAnimationUp {
+
+    50% {      
+        transform: translate(0vw , 3vw);
+    }  
+}
+
+
 /* ------------------------------------------              about me selected          -------------------------------------------------------------*/
 #about-me-selected{
     position: absolute;
@@ -387,7 +416,7 @@ a[id*="clickable"]{
     width: 0vw;
     bottom: 50%;
     left: 50%;
-    background-color: rgb(28, 117, 206) ;
+    background-color: rgb(55, 182, 236) ;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -407,57 +436,94 @@ a[id*="clickable"]{
     height: 2vw;
     width: 2vw;
     z-index: 22;
-    bottom: -5vw;
+    bottom: -15vw;
     transition: 1s;
 }
 
 .droplets div{
     position: absolute;
     background-color: rgb(62, 156, 233);
-    background-image: radial-gradient(rgb(186, 225, 246) , rgb(46, 133, 240));
+    background-image: radial-gradient(rgb(228, 255, 252) , rgb(28, 255, 236) );
     border: 1px solid rgba(255, 255, 255, 0);
     transition: 3s;
     border-radius: 50% ;
+    filter: blur(10px);
 }
-/*------------------------------------------     animation     ----------------------------------------------------------------------------- */
 
-@keyframes waveAnimationLeft {
-    50% {
-        transform: translateX(7.35vw);
+@keyframes blurunblur {
+    from{
+        filter: blur(1vw);
+    }
+    50%{
+        filter: blur(3px);
+        
+        
+    }
+    to{
+        filter: blur(1vw);
     }
 }
 
-@keyframes waveAnimationRight {
-    50% {      
-        transform: translate(2vw , 1vw);
-    }  
+/* --------------------------------------------------  side hustles   ------------------------------------------------------------------------ */
+
+.side-hustle-selected-container{
+    position: absolute;
+    bottom: -40vw;
+    left: 0;
+    height: 37vw ;
+    width: 100vw;
+    z-index: 17;
+    color: aliceblue;
+    letter-spacing: 0.3rem;
 }
 
-@keyframes waveAnimationDown {
-
-    50% {      
-        transform: translate(0vw , 2vw);
-    }  
+#side-hustle-selected{
+    position: absolute;
+    bottom: -40vw;
+    left: 0;
+    height: 37vw ;
+    width: 100vw;
+    z-index: 1;
+    transition: 2s;
 }
 
-@keyframes waveAnimationUp {
+.side-hustle-selected-container div{
+    position: absolute;
+    width: 20rem;
+    z-index: 2;
+    text-align: center;
+    transition: 1.5s;
+    
+}
 
-    50% {      
-        transform: translate(0vw , 3vw);
-    }  
+.hobby1{
+    left: 2vw;
+    bottom: -19vw;
+    
+}
+
+.hobby2{
+    width: 2rem;
+    left: 34vw;
+    bottom: -21vw;
+}
+
+.hobby2 a{
+    color: aqua;
+    cursor: pointer;
+    letter-spacing: 0;
+    text-decoration: underline;
 }
 
 
-
-
-
+/* ---------------------------------------------------   Intoduction   --------------------------------------------------------------------- */
 .intro-box{
     position: absolute;
     width: 30rem;
     height: 13rem;
     color: white;
     margin: 2vw;
-    z-index: 25;
+    z-index: 23;
 }
 
 .profile-pic{
@@ -537,9 +603,12 @@ h6{
 #side-hustle-heading{
     position: absolute;
     z-index: 28;
-    bottom: 19vw;
-    left: 4vw;
+    bottom: 19vw;   
+    left: 4vw;     
+    transition: 2s; 
 }
+
+
 
 
 /* responsive design for mobile devices */

@@ -1,3 +1,25 @@
+/* selection of the sections */
+
+// techStack , aboutMe , Experience , sideHustle
+let activeSection = null
+
+/* handles the active sections and deactivates the active section to activate different section */
+function handleDeactivation( section ) {
+    if( activeSection == "aboutMe"){
+        aboutMeUnselect()
+    }
+    else if( activeSection == "techStack" ) {
+        techStackUnSelect()
+    }
+    else if( activeSection == "experience") {
+        experienceUnselect()
+    }
+    else if( activeSection == "sideHustle") {
+        sideHustleUnselect() 
+    }
+    activeSection = section
+}
+
 /* about me section when selected */
 let aboutMeUnselectedSvg = document.querySelector("#about-me-unselected")
 
@@ -12,8 +34,8 @@ console.log(aboutMeSelected.children.length);
 
 
 aboutMeUnselectedSvg.addEventListener("click" , () => {
-    experienceUnselect()
-    techStackUnSelect()
+    handleDeactivation("aboutMe")
+    
     aboutMeSelected.style.bottom = "0vw";
     aboutMeSelected.children[0].style.bottom = aboutMeSelectedPosition[0];
     aboutMeSelected.children[0].style.left = "0vw";
@@ -63,8 +85,7 @@ let techStackUnSelectedSvg = document.querySelector("#tech-stack-unselected")
 let techStackSelected = document.querySelector(".tech-stack-selected-container")
 
 techStackUnSelectedSvg.addEventListener("click" , function() {  
-    experienceUnselect()
-    aboutMeUnselect()
+    handleDeactivation("techStack")
     techStackSelected.style.bottom = "0vw"
     techStackSelected.children[0].style.bottom = "-5vw"
     
@@ -150,9 +171,9 @@ let dropletsHolder = document.querySelector(".droplets")
 let drops = [] 
 
 // creates the required droplets
-for(let j = 0; j < 40; j++) {
+for(let j = 0; j < 50; j++) {
     drop = document.createElement("div")
-    let size = getRandomInt(2 , 5) + "vw";
+    let size = getRandomInt(1 , 5) + "vw";
     drop.style.height = size;
     drop.style.width = size;
     drop.style.bottom = "50%";
@@ -169,16 +190,34 @@ function dropsSplash( l , b) {
 
     for (let j = 0 ; j < drops.length ; j++) {
         drops[j].style.bottom = getRandomInt(5 , 30) + "vw"; 
-        drops[j].style.left = getRandomInt(-30 , 40) + "vw";
+        drops[j].style.left = getRandomInt(-30 , 50) + "vw";
+        drops[j].style.animation = `blurunblur 3s ease-in-out infinite ${getRandomInt(0 , 3)}s`
     }
+
+    dropInterval = setInterval(() => {
+        for (let j = 0 ; j < drops.length ; j++) {
+                drops[j].style.bottom = getRandomInt(5 , 30) + "vw"; 
+                drops[j].style.left = getRandomInt(-30 , 40) + "vw";
+        }
+    }, 5000);
 }
 
 function dropsCollect( ){
+    try {
+        clearInterval(dropInterval)
+    } catch (error) {
+        
+    }
+    dropletsHolder.style.bottom = "-12vw"
+    dropletsHolder.style.left = "38vw"
 
     for (let j = 0 ; j < drops.length ; j++) {
         drops[j].style.bottom = "50%"; 
         drops[j].style.left = "50%";
+        drops[j].style.animation = "none"
     }
+
+    
 
 }
 
@@ -188,9 +227,8 @@ let experienceUnselected = document.querySelector("#experience-unselected")
 let experienceSelectedContainer = document.querySelector(".experience-selected-container")
 let experienceSelected = document.querySelector("#experience-selected")
 
-experienceUnselected.addEventListener("click" , function() {
-    aboutMeUnselect();
-    techStackUnSelect()
+experienceUnselected.addEventListener("click" , ()=> {
+    handleDeactivation("experience")
 
     experienceSelectedContainer.style.bottom = "0vw"
     experienceSelected.style.bottom = "0vw"
@@ -239,7 +277,12 @@ function deactivateProject() {
         projectsSection.children[i].style.bottom = "50%"
     }
 
-    clearInterval(shapeChangeInterval)
+    try {
+        clearInterval(shapeChangeInterval)
+    } catch (error) {
+        
+    }
+
     dropsCollect()
 }
 
@@ -268,4 +311,38 @@ function experienceUnselect() {
     setTimeout(() => {
         experienceSelectedContainer.style.bottom = "-30vw"
     }, 3000);
+}
+
+
+/* --------------------------------------------    side hustle  --------------------------------------------------------------------- */
+let sideHustleUnselected = document.querySelector("#side-hustle-unselected")
+let sideHustleSelectedContainer = document.querySelector(".side-hustle-selected-container")
+let sideHustleHeading = document.querySelector("#side-hustle-heading")
+
+sideHustleUnselected.addEventListener("click" , () => {
+    handleDeactivation("sideHustle")
+
+    sideHustleSelectedContainer.style.bottom = "0vw"
+    sideHustleSelectedContainer.children[0].style.bottom = "0vw"
+
+    sideHustleHeading.style.bottom = "34vw"
+    sideHustleHeading.style.left = "45vw"
+
+    setTimeout(() => {
+        sideHustleSelectedContainer.children[1].style.bottom = "19vw"
+        sideHustleSelectedContainer.children[2].style.bottom = "21vw"
+    }, 1500);
+}) 
+
+function sideHustleUnselect() {
+    sideHustleSelectedContainer.children[1].style.bottom = "-19vw"
+    sideHustleSelectedContainer.children[2].style.bottom = "-21vw"
+    setTimeout(() => {
+        sideHustleHeading.style.bottom = "19vw"
+        sideHustleHeading.style.left = "4vw"
+        sideHustleSelectedContainer.children[0].style.bottom  = "-40vw"
+    }, 500);
+    setTimeout(() => {
+        sideHustleSelectedContainer.style.bottom = "-40vw"
+    }, 1000);
 }
