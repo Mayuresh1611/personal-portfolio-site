@@ -20,6 +20,18 @@ function handleDeactivation( section ) {
     activeSection = section
 }
 
+/* remninds  */
+let exitHint = document.querySelector(".exit-hint")
+
+setInterval(() => {
+    exitHint.style.width = "18rem"
+    exitHint.style.right = "8vw"
+    setTimeout(() => {
+        exitHint.style.right = "0.2vw"
+        exitHint.style.width = "0rem"
+    }, 8000);
+}, 45000);
+
 /* about me section when selected */
 let aboutMeUnselectedSvg = document.querySelector("#about-me-unselected")
 
@@ -28,10 +40,6 @@ let aboutMeSelectedPosition = ["0" , "0vw" , "17vw" ,"21vw" , "28vw"]
 let aboutMeUnSelectedPosition = ["0" , "-48.1vw" , "-17vw" ,"-21vw" , "-28vw"]
 
 let aboutMeHeading = document.querySelector("#about-me-heading")
-
-console.log(aboutMeSelected); // Check if aboutMeSelected is defined and what it contains
-console.log(aboutMeSelected.children.length);
-
 
 aboutMeUnselectedSvg.addEventListener("click" , () => {
     handleDeactivation("aboutMe")
@@ -42,7 +50,6 @@ aboutMeUnselectedSvg.addEventListener("click" , () => {
 
     aboutMeHeading.style.bottom = "40vw"
 
-    console.log("clicked")
 
     for(i=1 ; i<5; i++) {        
         setTimeout( function(index) {
@@ -56,7 +63,6 @@ function aboutMeUnselect() {
     
     for(let i = 1 ; i < 5 ; i++) {
         setTimeout( function(index) {
-            console.log(i)
             aboutMeSelected.children[index].style.bottom = aboutMeUnSelectedPosition[index]
         } , 300 * i, i )
 
@@ -108,7 +114,6 @@ techStackUnSelectedSvg.addEventListener("click" , function() {
 let langSectionTechStack = document.querySelector(".languages-section")
 let toolsSectionTechStack = document.querySelector(".tools-section")
 
-console.log(toolsSectionTechStack)
 let langPositions = [["2" , "1"] , ["4" , "1"] , ["1" , "2"] , ["3" , "2"] , ["5" , "2"]]
 let toolsPositions = [["2" , "1"] , ["3" , "1"] , ["4" , "1"] , ["3" , "2"]]
 
@@ -346,3 +351,11 @@ function sideHustleUnselect() {
         sideHustleSelectedContainer.style.bottom = "-40vw"
     }, 1000);
 }
+
+/* --------------------------   exit sections by clicking clouds  ----------------------------------------------------------------- */
+
+let cloudContainer = document.querySelector(".cloud-container")
+
+cloudContainer.addEventListener("click" , () => {
+    handleDeactivation("none")
+})

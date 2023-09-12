@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;800;900&display=swap');
 
 html {
-    background-color: rgba(8, 8, 102, 1);
+    background-color: rgba(15, 7, 100, 0.968);
     overflow: hidden;
     padding: none;
 }
@@ -28,7 +28,6 @@ body{
 
 
 #contact-me-svg{
-    
     width: 83.75vw;
     height: 11.17vw;
     animation: waveAnimationLeft 8s ease-in-out infinite 1s;
@@ -42,6 +41,7 @@ body{
     width: 100vw;
     height: 11.17vw;
     clip-path: polygon(10vw 5vw , 28vw 0vw , 56vw 0vw , 100vw 11.17vw , 0vw 11.17vw) ;
+
 }
 
 
@@ -165,7 +165,54 @@ a[id*="clickable"]{
         transform: translate(0vw , 3vw);
     }  
 }
+/*  ----------------------------- ------------------------         clouds               --------------------------------------------------------------*/
 
+.cloud-container{
+    position: absolute;
+    z-index: 15;
+    width: 100vw;
+    height: 13vw;
+    cursor: pointer;
+}
+
+.cloud-container img{
+    position: absolute;
+    right: 0;
+}
+
+#cloud1{
+    top: 0vw;
+    z-index: 1;
+    animation: cloudanimate 10s ease-in-out infinite;
+}
+
+#cloud2{
+    top: -6vw;
+    right: -4vw;
+    z-index: 2;
+    animation: cloudanimate 15s ease-in-out infinite ;
+}
+
+#cloud3{
+    top: -3vw;
+    right: -3vw;
+    z-index: 3;
+    animation: cloudanimate 8s ease-in-out  infinite 3s ;
+}
+
+@keyframes cloudanimate {
+    from{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-6vw);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+    
+}
 
 /* ------------------------------------------              about me selected          -------------------------------------------------------------*/
 #about-me-selected{
@@ -174,8 +221,7 @@ a[id*="clickable"]{
     bottom: -48.4vw;
     height: 48.31vw;
     width: 100vw;
-    transition: 2s;
-    
+    transition: 2s;    
 }
 
 
@@ -186,7 +232,7 @@ a[id*="clickable"]{
     width: 100vw;
     bottom: -48vw;
     z-index: 19;    
-    clip-path: polygon(0vw 47vw ,2vw 40vw ,11vw 30vw, 23vw 0vw , 100vw 0vw , 100vw 48.1vw , 0vw 48.1vw);
+    clip-path: polygon(0vw 47vw ,2vw 40vw ,11vw 30vw, 23vw 0vw , 36vw 0vw, 40vw 10vw , 77vw 7vw , 88vw 0vw , 100vw 0vw , 100vw 48.1vw , 0vw 48.1vw);
 }
 
 
@@ -514,7 +560,25 @@ a[id*="clickable"]{
     letter-spacing: 0;
     text-decoration: underline;
 }
+/* -----------------------------------------------------  connect with me  ----------------------------------------------------------- */
+.logos{
+    position: absolute;
+    left: 19vw;
+    bottom: 2.5vw;
+    background-color: rgba(240, 248, 255, 0);
+    width: 40vw;
+    height: 3vw;
+    z-index: 25;
 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.logos a img{
+    cursor: pointer;
+}
 
 /* ---------------------------------------------------   Intoduction   --------------------------------------------------------------------- */
 .intro-box{
@@ -522,8 +586,10 @@ a[id*="clickable"]{
     width: 30rem;
     height: 13rem;
     color: white;
-    margin: 2vw;
-    z-index: 23;
+    margin-left: 3vw;
+    margin-top: 2vw;
+    z-index: 16;
+
 }
 
 .profile-pic{
@@ -533,6 +599,7 @@ a[id*="clickable"]{
     background-color: black;
     border-radius: 50%;
     border: 0.2rem solid white;
+    margin-top: 1rem;
 }
 
 .short-about-me{
@@ -541,28 +608,29 @@ a[id*="clickable"]{
     justify-content: center;
     align-items: center;
     clear: left;
-    width: 18rem;
+    width: 20rem;
     padding: 0.5rem 1rem;
-    margin-left: 6rem;
+    margin-left: 3.5rem;
+    margin-top: 0.6rem;
     background-color: rgba(25, 31, 173, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.13);
     border-radius: 20px ;
     
     
 }
 
 .short-about-me p{
-    font-size: 0.83rem;
+    font-size: 1rem;
     text-align: center;
-    letter-spacing: 0.25rem;
+    font-weight: lighter;
+    letter-spacing: 0.3rem;
     
 }
 
 .name p {
-    font-size: 3.2rem;
-    letter-spacing: 1.2rem;
-    font-weight:700;
-    margin-left: 8rem;
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    font-weight:600;
+    margin-left: 7rem;
 }
 
 h6{
@@ -606,6 +674,33 @@ h6{
     bottom: 19vw;   
     left: 4vw;     
     transition: 2s; 
+}
+
+/* exit hint */
+
+.exit-hint{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.2vw;
+    bottom: 2vw;
+    z-index: 50;
+    height: 3rem;
+    width: 0rem;
+    background-color: rgba(0, 0, 0, 0.256);
+    color: aliceblue;
+    border-radius: 1rem;
+    overflow: hidden;
+    letter-spacing: 0.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.43);
+    transition: 2s;
+    box-sizing: border-box;
+}
+
+.exit-hint h4{
+    min-width: 18rem;
+    text-align: center;
 }
 
 
