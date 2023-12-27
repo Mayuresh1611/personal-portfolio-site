@@ -242,20 +242,162 @@ experienceUnselected.addEventListener("click" , ()=> {
 
 })
 
+/* Activates project section */
+let noProjects 
 let projectsSectionActive = 0;
+
+// imports the json data into the file 
+var jsonData
+fetch('exp.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Store the retrieved JSON data in the variable
+    jsonData = data;
+    console.log(jsonData); // Access jsonData here or perform further actions
+    addProjectsToPage(jsonData)
+  })
+  .catch(error => {
+    console.error('There was a problem fetching the JSON file:', error);
+  });
+
+let projectCardColl = document.querySelector(".project-cards")
+function addProjectsToPage(jsonData){
+    noProjects = jsonData.projects.length
+    
+
+    for (var i = 0; i < noProjects; i++) {
+        (function () {
+            var obj = jsonData.projects[i];
+            var pdiv = addProjectDiv(obj.name , obj.link);
+            var card = addProjectCard(obj.name, obj.desc, obj.img, i);
+    
+            pdiv.addEventListener("mouseover", function () {
+                card.style.width = "20rem";
+                card.style.filter = "blur(0px)"
+            });
+    
+            pdiv.addEventListener("mouseout", function () {
+                card.style.width = "0rem";
+                card.style.filter = "blur(5px)"
+            });
+    
+            projectCardColl.appendChild(card);
+        })();
+    }
+    
+}
+
+function addProjectDiv(name , link){
+    let pdiv = document.createElement("a")
+    pdiv.classList.add("projects")
+    pdiv.setAttribute("href" , link)
+    pdiv.setAttribute("target" , "blank")
+    let hname = document.createElement("h6")
+    hname.textContent = name
+    pdiv.appendChild(hname)
+    projectsSection.appendChild(pdiv) 
+
+    return pdiv
+}
+
+
+
+
+/* adding project cards to the projects */
+function addProjectCard(name, desc , img , i){
+    // Create main container div
+  const projectCard = document.createElement('div');
+  projectCard.classList.add('project_card');
+  projectCard.style.backgroundImage = "url("+ img +")"
+
+  let clickhere = document.createElement("p")
+  clickhere.textContent = "< click"
+  clickhere.classList.add("clickme")  
+
+  // Create project info card div
+  const projectInfoCard = document.createElement('div');
+  projectInfoCard.classList.add('project-info-card');
+
+  // Create heading element
+  const heading = document.createElement('h6');
+  heading.classList.add('name');
+  heading.textContent = name;
+
+  // Create paragraph element
+  const paragraph = document.createElement('p');
+  paragraph.classList.add('desc');
+  paragraph.textContent = desc;
+
+  // Append heading and paragraph to project info card
+  projectInfoCard.appendChild(heading);
+  projectInfoCard.appendChild(paragraph);
+
+  // Create link div
+  const linkDiv = document.createElement('div');
+  linkDiv.classList.add('link');
+
+  // Create image element
+  const image = document.createElement('img');
+  image.classList.add('link-svg');
+  image.src = 'Asset 3.svg';
+  image.alt = '';
+
+  // Append image to link div
+  linkDiv.appendChild(image);
+
+  // Create transit div
+  const transitDiv = document.createElement('div');
+  transitDiv.classList.add('transit');
+
+  // Append project info card, link div, and transit div to project card
+  projectCard.appendChild(projectInfoCard);
+  projectCard.appendChild(linkDiv);
+  projectCard.appendChild(clickhere)
+  projectCard.appendChild(transitDiv);
+
+  return projectCard
+}
+
+function getPosition(n){
+    let used = []
+    let ret = []
+    var arr = [[-30, 10], [-20, 10], [-10, 10], [0, 10], [10, 10], [20, 10], [30, 10], [-30, 20], [-20, 20], [-10, 20], [0, 20], [10, 20], [20, 20], [30, 20]]
+    
+    let i = 0
+    while (i < n){
+        let pos = getRandomInt(0 , 14) 
+        if (!used.includes(pos)){
+            i++
+            ret.push(arr[pos])
+            used.push(pos)
+        }
+
+    }
+    return ret
+}
+
+
 
 function activateProject() {
 
     /* sets up the different projects div into their respective positions */
-    let vals = [[-10 , 20] , [0 , 10 ] , [10 , 20]] 
+    let vals = getPosition(noProjects)
 
-    for (let i = 1 ; i < projectsSection.children.length ; i++) {
+    for (let i = 1 ; i < noProjects+1 ; i++) {
         pos = vals[i-1]
-        
         projectsSection.children[i].style.height = "8vw"
         projectsSection.children[i].style.width = "8vw"
+        projectsSection.children[i].style.borderWidth = "0.3rem"
         projectsSection.children[i].style.left = pos[0] + "vw"
         projectsSection.children[i].style.bottom = pos[1] + "vw"
+
+        projectCardColl.children[i-1].style.left = (pos[0] + 42)+ "vw"
+        projectCardColl.children[i-1].style.bottom = (pos[1] + 10) + "vw"
         
         projectsSection.children[i].style.borderRadius = changeShape() ;  
     }
@@ -280,6 +422,7 @@ function deactivateProject() {
         projectsSection.children[i].style.width = "0vw"
         projectsSection.children[i].style.left = "50%"
         projectsSection.children[i].style.bottom = "50%"
+        projectsSection.children[i].style.borderWidth = "0rem"
     }
 
     try {
@@ -294,7 +437,7 @@ function deactivateProject() {
 /* changes the shape of the box every 2 seconds  */
 
 
-projectsSection.addEventListener("click" , function() {
+projectsSection.children[0].addEventListener("click" , function() {
     if (projectsSectionActive) {
         /* deactivate */
         deactivateProject()

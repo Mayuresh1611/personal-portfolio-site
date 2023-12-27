@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;800;900&display=swap');
 
 html {
-    background-color: rgba(15, 7, 100, 0.968);
+    background-color: rgba(12, 7, 66, 0.968);
     overflow: hidden;
     padding: none;
 }
@@ -442,37 +442,117 @@ a[id*="clickable"]{
     position: absolute;
     height: 8vw;
     width: 8vw;
-    background-color: rgb(13, 112, 218);
+    background-color: rgb(65, 139, 219);
     z-index: 1;
     bottom: -12vw;
     left: 36vw;
-    border-radius: 50% ;
+    border-radius: 40% ;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 23;
     transition: 2.5s;
     cursor: pointer;
+    
 }
 
-.projects-section div{
+.projects-section .projects{
+    text-decoration: none;
+    box-sizing: content-box;
     position: absolute;
+    z-index: 22;
     display: flex;
     height: 0vw;
     width: 0vw;
     bottom: 50%;
     left: 50%;
-    background-color: rgb(55, 182, 236) ;
+    background-color: rgba(17, 68, 178, 0.559);
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
     transition: 2s;
+    border: 0rem solid white;
+    overflow: hidden;
+}
+
+.clickme{
+    float: inline-start;
+    position: relative;
+    top: 35%;
+    left: -9%;
+    background-color: rgba(4, 3, 23, 0.641);
+    padding: 0.3rem;
+}
+
+.project_card{
+    color: aliceblue;
+    z-index: 50;
+    position: absolute;
+    height: 9rem;
+    width: 0rem;
+    background-size: 100% 100%;
+    margin: 20px;
+    transition: 1s;
+    overflow: hidden;
+    
+}
+
+.project_card.hover{
+    width: 20rem;
+    filter: blur(0px);
+}
+
+.project_card p{
+    margin-top: 5%;
+    font-size: small;
+}
+
+.transit{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg , rgba(255, 255, 255, 0) , 50%, rgb(3, 2, 5));
+}
+
+.project-info-card{
+    float: right;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 1rem;
+    height: 97%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid white;
+    border-left-color: rgba(0, 0, 0, 0) ;
+    
+}
+
+.link{
+    float: left;
+    height: 2.3rem;
+    width: 2.3rem;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.556), 10%,  rgb(0, 0, 0));
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    left: 20%;
+    top: 40%;
+}
+
+.link-svg{
+    height: 1.5rem;
 }
 
 .projects-section div h6{
     margin: 2vw;
     transition: 4s;
+    user-select: none;
 }
 
 /* droplet */
@@ -488,8 +568,8 @@ a[id*="clickable"]{
 
 .droplets div{
     position: absolute;
-    background-color: rgb(62, 156, 233);
-    background-image: radial-gradient(rgb(228, 255, 252) , rgb(28, 255, 236) );
+    background-color: rgb(173, 200, 223);
+    background-image: radial-gradient(rgb(228, 255, 252) , rgb(144, 226, 241) );
     border: 1px solid rgba(255, 255, 255, 0);
     transition: 3s;
     border-radius: 50% ;

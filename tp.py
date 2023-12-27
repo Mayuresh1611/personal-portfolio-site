@@ -1,11 +1,9 @@
-ints = [1360 ,45,1320,43,1100,200,1000,200,680,0,500,0,200,130,0,300]
-values = []
-value = ""
-for i in range (len(ints) -1, -1 , -1):
-    values.append(round(((ints[i] / 1360) * 100) , 2))
+l1 = [-30 , -20 , -10 , 0 , 10 , 20 , 30]
+l2 = [10 , 20]
 
-for i in range(0 , len(values) , 2):
-    value += str(values[i+1] ) + "vw" + " " + str(values[i] +2) + "vw"
-    value += " , "
+l3 = []
+for i in l2:
+    for j in l1:
+        l3.append([j , i])
 
-print(value)
+print(l3)

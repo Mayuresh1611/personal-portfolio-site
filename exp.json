@@ -1,0 +1,24 @@
+{
+    "projects":[
+        {
+            "name": "Python Projects",
+            "desc": "20+ Python projects I made during learning python",
+            "img": "img/python.jpg",
+            "link": "https://github.com/Mayuresh1611/Python-Projects"
+        },
+
+        {
+            "name": "Chat App",
+            "desc": "Chat app based on sockets, made in C++. t improved my knowledge over computer network",
+            "img": "img/chatapp.png",
+            "link":"https://github.com/Mayuresh1611/DeezX-chat-app"
+        },
+
+        {
+            "name": "ToDo app",
+            "desc": "Conventional to do app but with scheduling feature.",
+            "img": "img/todo.jpg",
+            "link":"https://mayuresh1611.github.io/To-Do-website/"
+        }
+    ]
+}
