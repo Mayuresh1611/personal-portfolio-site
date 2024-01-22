@@ -22,7 +22,7 @@
         },
 
         {
-            "name": "GrossPredictor ML model",
+            "name": "Gross Predictor",
             "desc": "Applied Linear Regression and Data science processes for predicting movie collection",
             "img": "img/MovieGrossPredictor.jpg",
             "link": "https://colab.research.google.com/github/Mayuresh1611/ML-AI-projects/blob/main/MovieGrossPredictor.ipynb"
