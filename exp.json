@@ -26,6 +26,13 @@
             "desc": "Applied Linear Regression and Data science processes for predicting movie collection",
             "img": "img/MovieGrossPredictor.jpg",
             "link": "https://colab.research.google.com/github/Mayuresh1611/ML-AI-projects/blob/main/MovieGrossPredictor.ipynb"
+        },
+
+        {
+            "name": "Paper Piano",
+            "desc": "Used CNN and openCV to make Piano on plane paper",
+            "img": "img/paper-piano.jpg",
+            "link": "https://github.com/Mayuresh1611/Paper-Piano.git"
         }
     ]
 }
